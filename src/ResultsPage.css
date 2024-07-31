@@ -2,6 +2,7 @@
   --first-block-height: 120px;
 
   height: 100%;
+  width: 100%;
 }
 
 .results-page-ndc {
@@ -45,4 +46,11 @@
 
 .results-page-first b {
   padding-right: 4px;
+}
+
+.results-page__summary-item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  white-space: nowrap;
 }

@@ -27,17 +27,24 @@ const ResultsPage = ({ selected }: IProps) => {
     <div className={'results-page'}>
       <div className={'results-page-first'}>
         <h4>Drug basics <Link to={'/drugs/search'}>back to Search</Link></h4>
-        <div><b>ID:</b> {selected.rxcui}</div>
-        <div><b>Name:</b> {selected.name}</div>
-        <div><b>Synonym:</b> {selected.synonym}</div>
+        <div className={'results-page__summary-item'} title={selected.rxcui}><b>ID:</b> {selected.rxcui}</div>
+        <div className={'results-page__summary-item'} title={selected.name}><b>Name:</b> {selected.name}</div>
+        <div className={'results-page__summary-item'} title={selected.synonym}><b>Synonym:</b> {selected.synonym}</div>
       </div>
       <div className={'results-page-ndc'}>
         <h4>Associated NDCs</h4>
         {isLoading && <Spin />}
         {!isLoading &&
-          <ul>
-            {ndcs.ndcGroup.ndcList.ndc.map(ndc => <li key={ndc}>{ndc}</li>)}
-          </ul>
+          <>
+            {ndcs.ndcGroup.ndcList.ndc &&
+              <ul>
+                {ndcs.ndcGroup.ndcList.ndc.map(ndc => <li key={ndc}>{ndc}</li>)}
+              </ul>
+            }
+            {!ndcs.ndcGroup.ndcList.ndc &&
+              <span>No NDCs found</span>
+            }
+          </>
         }
       </div>
     </div>
