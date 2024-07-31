@@ -1,0 +1,17 @@
+.search-container {
+
+}
+
+.search-results {
+
+}
+
+.search-result {
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.search-result:hover {
+  background-color: grey;
+  color: white;
+}
